@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imfomation Customer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-form">
+           <!-- Button to Open the Modal -->
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Customer Infomation</h4>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body"style="display: grid;
+            grid-template-columns: auto auto;">
+              <form action="/action_page.php" >
+                <div class="form-group">
+                  <label for="">FullName</label>
+                  <input
+                    type="text"
+                    id="change-name"
+                    class="form-control"
+                    placeholder="VD: Donal Trump"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input
+                    type="email"
+                    id="change-email"
+                    class="form-control"
+                    placeholder="admin@domain.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="change-phone"
+                    placeholder="VD:+1 (516) 482-1658"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" id="change-saddress" class="form-control" />
+                </div>
+
+                <div class="modal-footer" style="text-align: right;">
+                  <button type="button" class="btn btn-success" data-dismiss="modal" >Close</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" >Save Changes</button>
+                </div>
+              </form>
+            </div>
+            
+            <!-- Modal footer -->
+           
+            
+          </div>
+        </div>
+      </div>
+      <div class="row1">
+        <h3>Customer infomation</h3>
+
+        <div class="add-infomation">
+          <div class="infomation">
+            <label for="">FullName</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              placeholder="Ex: Donal Trump"
+            />
+            <span id="msg-fullname"></span>
+          </div>
+          <div class="infomation">
+            <label for="">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              placeholder="Ex: admin@domain.com"
+            />
+            <span id="msg-email"></span>
+          </div>
+          <div class="infomation">
+            <label for="">Password</label>
+            <input type="password" id="password" />
+            <span id="msg-password"></span>
+          </div>
+          <div class="infomation">
+            <label for="">Re-password</label>
+            <input type="password" id="re-password" />
+            <span id="msg-repassword"></span>
+          </div>
+          <div class="infomation">
+            <label for="">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              placeholder="Ex: +1 (516) 482-1658"
+            />
+            <span id="msg-phone"></span>
+          </div>
+          <div class="infomation">
+            <label for="">Address</label>
+            <input type="text" id="address" class="form-control" />
+            <span id="msg-address"></span>
+          </div>
+        </div>
+        <div class="button">
+          <button style="width:250px" onclick="addCustomer()">Create Customer</button>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="data-customer" style="width: 100%;padding: 50px 0;border-radius: 10px;">
+          <table >
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th class="th-width"></th>
+              </tr>
+            </thead>
+            <tbody id="tbcustomer"></tbody>
+          </table>
+        </div>
+      </div>
+     
+    </div>
+   
+    <script src="script.js"></script>
+  </body>
+</html>
