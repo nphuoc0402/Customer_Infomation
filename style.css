@@ -216,5 +216,8 @@ table {
   display: flex;
   justify-content: space-around;
 }
-
+label[for="save-change"]{
+  color: red  ;
+  
+}
 

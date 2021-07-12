@@ -156,17 +156,15 @@ function clearUnnecessaryWhiteSpace(str) {
   return str.trim().replace(/  +/g, " ");
 }
 
-function editInfoCustomer(i) {
-  let tr = document.getElementById(`tr_${i}`);
-  let tds = tr.children;
 
-  // tds[1].innerHTML = `<input class='form-control' type = 'text' value = "${customers[i].fullname}">`;
-  // tds[2].innerHTML = `<input class='form-control' type = 'email' value = "${customers[i].email}">`;
-  // tds[3].innerHTML = `<input class='form-control' type = 'text' value = "${customers[i].phone}">`;
-  // tds[4].innerHTML = `<input class='form-control' type = 'text' value = ${customers[i].address}>`;
-  // tds[5].children[0].classList.add("d-none");
-  // tds[5].children[1].classList.remove("d-none");
-  // tds[5].children[2].classList.remove("d-none");
+function editInfoCustomer(i) {
+  customer = JSON.parse( localStorage.getItem('data'))[i];
+  document.getElementById('change-name').value = customer.fullname;
+  document.getElementById('change-email').value =  customer.email;
+  document.getElementById('change-phone').value = customer.phone;
+  document.getElementById('change-address').value = customer.address;
+  document.getElementById('save-change').value = i;
+
 }
 
 function removeInfoCustomer(i) {
@@ -201,32 +199,26 @@ function resetInfoCustomer(i) {
   tds[2].innerHTML = `${customers[i].email}`;
   tds[3].innerHTML = `${customers[i].phone}`;
   tds[4].innerHTML = `${customers[i].address}`;
-  // tds[5].children[0].classList.remove("d-none");
-  // tds[5].children[1].classList.add("d-none");
-  // tds[5].children[2].classList.add("d-none");
 }
 
-function updateInfoCustomer() {
-  let tr = document.getElementById(`tr_${i}`);
-  let tds = tr.children;
-  let newCustomerName = tds[1].children[0].value;
-  let newCustomerEmail = tds[2].children[0].value;
-  let newCustomerPhone = parseInt(tds[3].children[0].value);
-  let newCustomerAddress = tds[4].children[0].value;
-  newCustomerName = clearUnnecessaryWhiteSpace(newCustomerName);
+function updateInfoCustomer(i) {
 
-  if (isNullOrEmpty(newCustomerName)) {
-    alert("error");
-  } else {
-    customers[i].fullname = newCustomerName;
-    customers[i].email = newCustomerEmail;
-    customers[i].phone = newCustomerPhone;
-    customers[i].address = newCustomerAddress;
+    let newName = document.getElementById('change-name').value;
+    let newEmail = document.getElementById('change-email').value;
+    let newPhone = document.getElementById('change-phone').value;
+    let newAddress = document.getElementById('change-address').value;
+    let customer = new Customer(
+      newName,
+      newEmail,
+      newPhone,
+      newAddress
+    )
+    customers.push(customer);
 
     setLocalStorage(key, customers);
     showCustomer();
     showMessage();
-  }
+  
 }
 
 function formatPhoneNumber(phoneNumberString) {
