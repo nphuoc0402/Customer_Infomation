@@ -207,13 +207,11 @@ function updateInfoCustomer(i) {
     let newEmail = document.getElementById('change-email').value;
     let newPhone = document.getElementById('change-phone').value;
     let newAddress = document.getElementById('change-address').value;
-    let customer = new Customer(
-      newName,
-      newEmail,
-      newPhone,
-      newAddress
-    )
-    customers.push(customer);
+    
+    customers[i].fullname = newName;
+    customers[i].email = newEmail;
+    customers[i].phone = newPhone;
+    customers[i].address = newAddress;
 
     setLocalStorage(key, customers);
     showCustomer();
